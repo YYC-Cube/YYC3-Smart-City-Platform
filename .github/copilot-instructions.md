@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-YYC³ Smart City Platform is a comprehensive smart city application built with Next.js 14, React 18, and TypeScript. The platform provides various urban services including transportation, healthcare, education, community management, and emergency services.
+YYC³ Smart City Platform is a comprehensive smart city application built with Next.js 16, React 19, and TypeScript 6. The platform provides various urban services including transportation, healthcare, education, community management, and emergency services.
 
-This repository is automatically synced with v0.app deployments and hosted on Vercel.
+This repository supports dual deployment: Vercel (SSR with API routes) and GitHub Pages (static export to smart-city.yyc3.top).
 
 ## Project Structure
 
@@ -32,14 +32,14 @@ This repository is automatically synced with v0.app deployments and hosted on Ve
 
 ## Technology Stack
 
-- **Framework**: Next.js 14.x (App Router)
-- **Language**: TypeScript 5.x (strict mode enabled)
-- **UI Library**: React 18.x
-- **Styling**: Tailwind CSS 3.x with tailwindcss-animate
+- **Framework**: Next.js 16.x (App Router)
+- **Language**: TypeScript 6.x (strict mode enabled)
+- **UI Library**: React 19.x
+- **Styling**: Tailwind CSS 4.x with tailwindcss-animate
 - **UI Components**: Radix UI primitives + shadcn/ui
-- **Database**: MySQL2
-- **Package Manager**: pnpm
-- **Deployment**: Vercel
+- **Database**: MySQL2 (v3.x)
+- **Package Manager**: pnpm 10.x
+- **Deployment**: Vercel (SSR) + GitHub Pages (Static Export)
 
 ## Development Guidelines
 
@@ -72,28 +72,47 @@ This repository is automatically synced with v0.app deployments and hosted on Ve
 ### Build & Development
 
 **Install Dependencies:**
+
 ```bash
 pnpm install
 ```
 
 **Development Server:**
+
 ```bash
 pnpm dev
 ```
+
 Runs on http://localhost:3000
 
 **Build:**
+
 ```bash
 pnpm build
 ```
 
+**Static Export (GitHub Pages):**
+
+```bash
+pnpm build:static
+```
+
 **Linting:**
+
 ```bash
 pnpm lint
 ```
+
 Uses ESLint with Next.js configuration
 
+**Type Check:**
+
+```bash
+pnpm type-check
+```
+
 **Start Production Server:**
+
 ```bash
 pnpm start
 ```
@@ -115,12 +134,14 @@ pnpm start
 ### Smart City Features Context
 
 This platform serves multiple user groups:
+
 - **Citizens**: Access various city services (transport, healthcare, education, etc.)
 - **Merchants**: Manage business-related services
 - **Government**: Administrative and management features
 - **Service Providers**: Healthcare, education, and other service management
 
 When working on features:
+
 - Consider accessibility for elderly users
 - Ensure mobile responsiveness for on-the-go access
 - Maintain consistency across different service modules
@@ -137,6 +158,7 @@ When working on features:
 ### Integration with v0.app
 
 This repository syncs automatically with v0.app:
+
 - Changes from v0.app deployments are automatically pushed to this repo
 - When making manual changes, ensure they are compatible with the Next.js App Router structure
 - Avoid modifying files that are primarily managed by v0.app (check commit history)

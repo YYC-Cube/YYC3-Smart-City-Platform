@@ -24,4 +24,13 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts.DS_Store
+next-env.d.ts
+
+# static export build temp
+.api-backup
+
+# macOS
+.DS_Store
+
+# pnpm store
+.pnpm-store/

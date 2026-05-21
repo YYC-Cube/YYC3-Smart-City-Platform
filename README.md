@@ -1,10 +1,10 @@
 # 🏠 YYC³ Smart City Platform 智慧城市服务平台
 
-![YYC³ Smart City Platform](./public/yyc3-article-cover-05.png)
+![YYC³ Smart City Platform](./public/Family-001.png)
 
 [![CI](https://github.com/YYC-Cube/yyc3-smart-city-platform/workflows/CI/badge.svg)](https://github.com/YYC-Cube/yyc3-smart-city-platform/actions/workflows/ci.yml)
-[![Next.js](https://img.shields.io/badge/Next.js-16.0-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![Standardization](https://img.shields.io/badge/YYC³-Standardization-blue?style=flat-square&logo=shield)](https://github.com/YYC-Cube/yyc3-smart-city-platform)
@@ -15,7 +15,7 @@
 
 ## 📖 项目简介
 
-YYC³(YanYuCloudCube)Smart City Platform是一个基于 Next.js 15 构建的现代化智能城市服务平台，集成了本地大模型AI助手❤️"小语"，为用户提供全方位的智慧生活服务。平台以拟人化交互为核心，结合百度地图、本地大模型等技术，打造24/7贴心智能服务体验。
+YYC³(YanYuCloudCube)Smart City Platform是一个基于 Next.js 16 构建的现代化智能城市服务平台，集成了本地大模型AI助手❤️"小语"，为用户提供全方位的智慧生活服务。平台以拟人化交互为核心，结合百度地图、本地大模型等技术，打造24/7贴心智能服务体验。
 
 ### 🎯 核心理念
 
@@ -69,9 +69,9 @@ YYC³(YanYuCloudCube)Smart City Platform是一个基于 Next.js 15 构建的现�
 
 ### 前端框架
 
-- **Next.js 15** - React全栈框架，支持SSR/SSG
+- **Next.js 16** - React全栈框架，支持SSR/SSG
 - **TypeScript** - 类型安全的JavaScript超集
-- **Tailwind CSS** - 原子化CSS框架
+- **Tailwind CSS 4** - 原子化CSS框架
 - **Shadcn/ui** - 现代化UI组件库
 
 ### AI与地图
@@ -92,114 +92,108 @@ YYC³(YanYuCloudCube)Smart City Platform是一个基于 Next.js 15 构建的现�
 
 ### 环境要求
 
-- Node.js 18.0+
-- npm 9.0+ 或 yarn 1.22+
+- Node.js 20.0+
+- pnpm 10.0+
 - Docker (可选，用于本地大模型部署)
 
 ### 安装步骤
 
 1. **克隆项目**
+
 ```bash
 git clone https://github.com/YYC-Cube/yyc3-smart-city-platform.git
 cd yyc3-smart-city-platform
 ```
 
-2. **安装依赖**
-\`\`\`bash
-npm install
+1. **安装依赖**
 
-# 或
-
-yarn install
-\`\`\`
+```bash
+pnpm install
+```
 
 1. **环境配置**
-\`\`\`bash
+
+```bash
 cp .env.example .env.local
-\`\`\`
+```
 
 编辑 `.env.local` 文件，配置必要的环境变量：
-\`\`\`env
 
+```env
 # 百度地图API密钥
-
 NEXT_PUBLIC_BAIDU_MAP_AK=your_baidu_map_api_key
 
 # 本地大模型配置
-
-LOCAL_AI_MODEL_URL=<http://localhost:8080>
+LOCAL_AI_MODEL_URL=http://localhost:8080
 LOCAL_AI_MODEL_TYPE=chatglm
 
 # 数据库配置（可选）
-
 DATABASE_URL=your_database_url
-\`\`\`
+```
 
 1. **启动开发服务器**
-\`\`\`bash
-npm run dev
 
-# 或
-
-yarn dev
-\`\`\`
+```bash
+pnpm dev
+```
 
 1. **访问应用**
-打开浏览器访问 [http://localhost:3000](http://localhost:3000)
+打开浏览器访问 [http://localhost:3176](http://localhost:3176)
 
 ### 本地大模型部署（可选）
 
 使用Docker部署ChatGLM-6B：
-\`\`\`bash
 
+```bash
 # 拉取镜像
-
 docker pull chatglm/chatglm-6b:latest
 
 # 启动容器
-
 docker run -d \
   --name chatglm-6b \
   -p 8080:8080 \
   --gpus all \
   chatglm/chatglm-6b:latest
-\`\`\`
+```
 
 ## 📁 项目结构
 
-\`\`\`
-smart-life-assistant/
-├── app/                          # Next.js App Router
-│   ├── city-empowerment/         # 城市赋能模块
-│   ├── elderly-care/             # 养老关怀模块
-│   ├── smart-living/             # 智慧生活模块
-│   ├── project-plan/             # 项目计划页面
-│   ├── login/                    # 登录页面
-│   ├── register/                 # 注册页面
+```
+yyc3-smart-city-platform/
+├── app/                          # Next.js 16 App Router
+│   ├── api/                      # API Routes (用户/商家/订单/公告)
+│   ├── daily-needs/              # 生活刚需 (食品/生鲜/药品)
+│   ├── medical/                  # 在线就诊 (预约/问诊/急诊)
+│   ├── community/                # 社区服务 (物业/快递/邻里)
+│   ├── government/               # 便民服务 (账单/证件)
+│   ├── merchant/                 # 商家服务 (入驻/管理)
+│   ├── smart-driving/            # 智驭随行
+│   ├── pet-companion/            # 伴宠星途
+│   ├── transport/                # 出行服务
+│   ├── ...                       # 其他14个服务模块
 │   ├── globals.css               # 全局样式
 │   ├── layout.tsx                # 根布局
 │   └── page.tsx                  # 首页
 ├── components/                   # 可复用组件
-│   ├── ui/                       # UI基础组件
-│   ├── CityVoiceBroadcast.tsx    # 城市之声播报
-│   ├── DateTime.tsx              # 智能时间组件
-│   ├── XiaoYuAssistant.tsx       # 小语智能助手
-│   ├── ModernNavigation.tsx      # 现代化导航
+│   ├── ui/                       # shadcn/ui + Radix UI 基础组件
+│   ├── ai-assistant.tsx          # 小语智能助手
+│   ├── navigation.tsx            # 底部导航
 │   └── ...                       # 其他组件
+├── contexts/                     # React Context (地区/位置)
+├── lib/                          # 工具库 + 数据库模型
+├── public/                       # 静态资源 + 多平台图标
 ├── docs/                         # 项目文档
-├── lib/                          # 工具库
-├── public/                       # 静态资源
-├── types/                        # TypeScript类型定义
-├── .env.example                  # 环境变量示例
-├── next.config.js                # Next.js配置
-├── tailwind.config.js            # Tailwind配置
+├── .github/workflows/            # CI/CD (10个工作流)
+├── next.config.mjs               # Next.js配置
+├── tailwind.config.ts            # Tailwind配置
 ├── package.json                  # 项目依赖
 └── README.md                     # 项目说明
-\`\`\`
+```
 
 ## 📋 开发计划 ❤️
 
 ### 🎯 第一阶段：基础架构搭建（2026年1月21日 - 2月15日）
+
 - [x] 项目初始化和基础框架搭建
 - [x] UI组件库集成和主题配置
 - [x] 路由结构设计和页面框架
@@ -208,6 +202,7 @@ smart-life-assistant/
 - [ ] 数据库设计和API接口
 
 ### 🤖 第二阶段：AI能力与地图集成（2026年2月16日 - 3月31日）
+
 - [ ] 本地大模型部署和接口封装
 - [ ] "小语"智能助手核心功能开发
 - [ ] 百度地图API深度集成
@@ -216,6 +211,7 @@ smart-life-assistant/
 - [ ] AI对话上下文管理
 
 ### 🏠 第三阶段：生活服务整合（2026年4月1日 - 5月15日）
+
 - [ ] 智能家居设备接入
 - [ ] 健康监测数据集成
 - [ ] 社区服务功能开发
@@ -224,6 +220,7 @@ smart-life-assistant/
 - [ ] 数据分析和可视化
 
 ### 🚀 第四阶段：上线运营（2026年4月16日 - 6月30日）
+
 - [ ] 性能优化和安全加固
 - [ ] 用户测试和反馈收集
 - [ ] 运营数据监控

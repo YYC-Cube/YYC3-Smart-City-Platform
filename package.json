@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "start": "next start",
+    "build:static": "NEXT_STATIC_EXPORT=true next build",
+    "dev": "next dev -p 3176",
+    "lint": "eslint .",
+    "start": "next start -p 3176",
     "type-check": "tsc --noEmit",
     "ci": "pnpm install --frozen-lockfile && pnpm run type-check && pnpm run lint && pnpm run build",
     "db:test": "curl -s http://localhost:3000/api/db-test | jq .",
@@ -28,7 +29,7 @@
     "clsx": "^2.1.1",
     "date-fns": "4.1.0",
     "lucide-react": "^1.14.0",
-    "mysql2": "latest",
+    "mysql2": "^3.12.0",
     "next": "16.2.6",
     "next-themes": "^0.4.6",
     "react": "19.2.6",
@@ -37,6 +38,8 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^9.39.4",
     "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^25",
     "@types/react": "^19",
@@ -45,6 +48,7 @@
     "eslint-config-next": "16.2.6",
     "postcss": "^8.5",
     "tailwindcss": "^4.1.17",
-    "typescript": "^6"
+    "typescript": "^6",
+    "typescript-eslint": "^8"
   }
 }
